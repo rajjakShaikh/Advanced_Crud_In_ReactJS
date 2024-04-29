@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-container {
+  width: calc(100% - 208px);
+  margin-left: 208px;
+  z-index: 2000;
+}
+
+.bg-gray-500.p-10 {
+  min-height: 100vh !important;
+}
