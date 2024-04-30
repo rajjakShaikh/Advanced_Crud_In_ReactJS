@@ -1,109 +1,46 @@
 {
   "users": [
     {
-      "id": "3269",
-      "name": "John Doe",
-      "username": "johndoe87",
-      "email": "johndoe@example.com",
-      "phone": "07755567890"
-    },
-    {
-      "id": "7452",
-      "name": "Alice Johnson",
-      "username": "alicej",
-      "email": "alicejohnson@example.com",
-      "phone": "07755524680"
-    },
-    {
-      "id": "8823",
-      "name": "Michael Brown",
-      "username": "michaelb89",
-      "email": "michaelbrown@example.com",
-      "phone": "07755513579"
-    },
-    {
-      "id": "5691",
-      "name": "Sophia Lee",
-      "username": "sophialeexo",
-      "email": "sophialee@example.com",
-      "phone": "07755598765"
-    },
-    {
-      "id": "1326",
-      "name": "Olivia White",
-      "username": "oliviawhite22",
-      "email": "oliviawhite@example.com",
-      "phone": "07755546890"
-    },
-    {
-      "id": "2345",
-      "name": "James Wilson",
-      "username": "jameswils",
-      "email": "jameswilson@example.com",
-      "phone": "07755590876"
-    },
-    {
-      "id": "6789",
-      "name": "Emily Taylor",
-      "username": "emtaylor",
-      "email": "emilytaylor@example.com",
-      "phone": "07755545678"
-    },
-    {
-      "id": "8912",
-      "name": "Daniel Martinez",
-      "username": "danmartinez",
-      "email": "danmartinez@example.com",
-      "phone": "07755523456"
-    },
-    {
-      "id": "1842",
-      "name": "maroti",
-      "username": "maroti123",
-      "email": "rahillshaikh77@gmail.com",
-      "phone": "07743807472"
-    },
-    {
-      "id": "ae92",
-      "name": "virat",
-      "username": "kohli",
-      "email": "virat@gmail.com",
-      "phone": "8767876545"
-    },
-    {
-      "id": "983b",
-      "name": "Rohit",
-      "username": "Sharma",
-      "email": "Rohit@gmail.com",
-      "phone": "2367876545"
-    },
-    {
-      "id": "48e1",
-      "name": "rajjak",
-      "username": "Shaikh",
+      "id": "b158",
+      "name": "rajjak shaikh",
+      "username": "rajjaks77",
       "email": "rajjak@gmail.com",
-      "phone": "7767876545"
+      "phone": "7677657865"
     },
     {
-      "id": "702a",
-      "name": "kanad",
-      "username": "kanadtest",
-      "email": "kanad@gmail.com",
-      "phone": "7743807472"
+      "id": "53e0",
+      "name": "avishkar",
+      "username": "avishkar23",
+      "email": "avishkar@gmail.com",
+      "phone": "6577657865"
     },
     {
-      "id": "cae9",
-      "name": "kanadtest",
-      "username": "kanadtest",
-      "email": "kanad@gmail.com",
-      "phone": "7743807472"
+      "id": "4583",
+      "name": "Virat",
+      "username": "kohli",
+      "email": "Virat@gmail.com",
+      "phone": "8977657865"
     },
     {
-      "id": "0865",
-      "name": "kanadtest123",
-      "username": "kanadtest",
-      "email": "kanad@gmail.com",
-      "phone": "7743807472"
+      "id": "fafd",
+      "name": "karan",
+      "username": "patil",
+      "email": "karan@gmail.com",
+      "phone": "3477657865"
+    },
+    {
+      "id": "e2b1",
+      "name": "vinod",
+      "username": "patil",
+      "email": "vinod@gmail.com",
+      "phone": "2377657865"
+    },
+    {
+      "id": "7972",
+      "name": "rohit",
+      "username": "sharma",
+      "email": "rohit@gmail.com",
+      "phone": "4567896543"
     }
   ]
 }

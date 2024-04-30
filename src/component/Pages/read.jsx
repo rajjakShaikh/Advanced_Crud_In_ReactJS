@@ -14,6 +14,7 @@ export default function Read() {
     phone: "",
   });
   const { id } = useParams();
+  const [editmode, setEditMode] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,11 +52,17 @@ export default function Read() {
     }, 2000);
   };
 
+  const handleUpdateread=() => {
+    setEditMode(true);
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center py-8">
       <ToastContainer />
       <div className="bg-white p-8 shadow-2xl rounded-lg w-1/2">
-        <h3 className="text-2xl font-bold mb-4 text-center  border-gray-400 pb-3 border-b">User Details</h3>
+        <h3 className="text-2xl font-bold mb-4 text-center  border-gray-400 pb-3 border-b">
+         {!editmode ? "User Details" : "update User Details"}
+        </h3>
         <div className="flex justify-evenly">
           <div className="mb-4">
             <label
@@ -70,6 +77,7 @@ export default function Read() {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
+              readOnly={!editmode}
               className="border border-gray-300 rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
@@ -86,6 +94,7 @@ export default function Read() {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
+              readOnly={!editmode}
               className="border border-gray-300 rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
@@ -105,6 +114,7 @@ export default function Read() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+                 readOnly={!editmode}
               className="border border-gray-300 rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
@@ -121,18 +131,29 @@ export default function Read() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
+                 readOnly={!editmode}
               className="border border-gray-300 rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
         </div>
 
         <div className="flex justify-center gap-[50px] mt-4">
+          {!editmode ? (
           <button
+            className="px-6 py-2 bg-blue-600 text-white rounded-md mr-4 focus:outline-none focus:ring focus:ring-blue-400"
+            onClick={handleUpdateread}
+          >
+            Edit 
+          </button>
+          ) : (
+               <button
             className="px-4 py-2 bg-blue-600 text-white rounded-md mr-4 focus:outline-none focus:ring focus:ring-blue-400"
             onClick={handleUpdate}
           >
-            Update
+            update 
           </button>
+          )}
+         
           <Link
             to={`/create/listofusers`}
             className="px-4 py-2 bg-green-700 text-white rounded-md focus:outline-none focus:ring focus:ring-green-400"

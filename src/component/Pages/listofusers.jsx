@@ -7,6 +7,10 @@ import { Pagination } from "flowbite-react";
 // import _ from "lodash";
 import debounce from "lodash.debounce";
 import { Spinner } from "flowbite-react";
+import Adduser from './svg/Adduser'
+import Delete from './svg/Delete'
+import View from "./svg/View";
+
 
 export default function Listofusers() {
   const navigate = useNavigate();
@@ -89,6 +93,13 @@ export default function Listofusers() {
   }
   
   const handleSubmit = async () => {
+    if (Object.values(formData).some(value => value.trim() === "")) {
+      toast.error("Please fill in all fields",{
+        autoClose: 1000,
+        position: "top-center"
+      });
+      return;
+    }
     try {
       await axios.post("http://localhost:3000/users", formData);
       setShowPopup(false);
@@ -136,11 +147,11 @@ export default function Listofusers() {
   return (
     <div className="bg-gray-500 p-10">
       <div className="text-center">
- {loading && <Spinner color="purple" aria-label="text-center Loading spinner" size="xl" />}
+          {loading && <Spinner color="purple" aria-label="text-center Loading spinner" size="xl" />}
       </div>
       
       <div className="flex justify-end">
-        <button className="px-8 py-2 mx-2 bg-gray-600 font-bold rounded-md text-white text-bold text-[15px] my-1" onClick={()=>navigate('/')}>Back</button>
+        {/* <button className="px-8 py-2 mx-2 bg-gray-600 font-bold rounded-md text-white text-bold text-[15px] my-1" onClick={()=>navigate('/')}>Back</button> */}
       </div>
       <ToastContainer />
       <h2 className="flex justify-center text-white text-[20px] font-bold">
@@ -148,11 +159,14 @@ export default function Listofusers() {
       </h2>
       <div className="flex justify-end">
         <input type="search"  name="search" id="search" placeholder="Search..."  onChange={(e)=>debouncedOnchange(e)}  className="px-8 py-2 mx-2   rounded-md text-dark text-bold text-[19px] my-2"/>
-        <button
+        {/* <button
           className="px-8 py-2 mx-2 bg-green-600  rounded-md text-white text-bold text-[19px] my-2"
           onClick={handleAdd}
         >
           Add User
+        </button> */}
+        <button className="px-8 py-2 mx-2  bg-green-600  rounded-md text-white text-bold text-[19px] my-2" onClick={handleAdd}>
+    <Adduser />
         </button>
       </div>
 
@@ -169,27 +183,36 @@ export default function Listofusers() {
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((item) => (
+            {currentItems.map((item,index) => (
               <tr
                 key={item.id}
-                className={`${item.id % 2 === 0 ? "bg-gray-300" : "bg-white"}`}>
+                className={`${index % 2 === 0 ? "bg-gray-300" : "bg-white"}`}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.username}</td>
                 <td>{item.email}</td>
                 <td>{item.phone}</td>
                 <td>
-                  <Link
+                  {/* <Link
                     to={`/create/listofusers/${item.id}`}
                     className="px-6 mx-3 py-1 bg-blue-400 rounded-md text-white text-bold text-[16px] my-2"
                   >
                    View
-                  </Link>
-                  <button
+                  </Link> */}
+                  <button className="bg-sky-600 px-4 py-1 rounded-md">
+                    <Link to={`/create/listofusers/${item.id}`} >
+                      <View />
+                    </Link>
+            </button>
+
+                  {/* <button
                     className="px-6 mx-3 py-1 bg-red-600 rounded-md text-white text-bold text-[16px] my-2"
                     onClick={() => handlestatusdelete(item.id,item.name)}
                   >
                     Delete
+                  </button> */}
+                  <button  className="px-4 mx-3 py-1 bg-red-600 rounded-md text-white text-bold text-[16px] my-2"onClick={()=> handlestatusdelete(item.id,item.name)}>
+              <Delete />
                   </button>
                 </td>
               </tr>

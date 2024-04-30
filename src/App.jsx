@@ -1,25 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./component/Pages/home";
-import About from "./component/Pages/about";
 import Create from "./component/Pages/create";
 import Todo from "./component/Pages/todo";
 // import Footer from './component/Pages/footer';
-import Counter from "./feature/counter";
-import Testpage from "./component/Pages/testpage";
 import Listofusers from "./component/Pages/listofusers";
 import Read from "./component/Pages/read";
+import Navbar from "./component/Pages/navbar";
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/create" element={<Create />} />
           <Route path="/todo" element={<Todo />}></Route>
-          <Route path="/counter" element={<Counter />}></Route>
-          <Route path="/test" element={<Testpage />}></Route>
           <Route path="/create/listofusers" element={<Listofusers />}></Route>
           <Route path="/create/listofusers/:id" element={<Read />}></Route>
         </Routes>
