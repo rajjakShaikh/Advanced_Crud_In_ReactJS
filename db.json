@@ -41,6 +41,20 @@
       "username": "sharma",
       "email": "rohit@gmail.com",
       "phone": "4567896543"
+    },
+    {
+      "id": "cbe3",
+      "name": "shubhman",
+      "username": "shubhman123",
+      "email": "shubhman@gmail.com",
+      "phone": "7677657865"
+    },
+    {
+      "id": "1cf5",
+      "name": "test",
+      "username": "ddfdfd",
+      "email": "bf@gmail.com",
+      "phone": "07677657865"
     }
   ]
 }

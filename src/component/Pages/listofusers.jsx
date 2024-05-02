@@ -10,6 +10,7 @@ import { Spinner } from "flowbite-react";
 import Adduser from './svg/Adduser'
 import Delete from './svg/Delete'
 import View from "./svg/View";
+import Search from "./svg/Search";
 
 
 export default function Listofusers() {
@@ -146,6 +147,7 @@ export default function Listofusers() {
 
   return (
     <div className="bg-gray-500 p-10">
+      {/* loader spinner  */}
       <div className="text-center">
           {loading && <Spinner color="purple" aria-label="text-center Loading spinner" size="xl" />}
       </div>
@@ -158,7 +160,11 @@ export default function Listofusers() {
         List Of Users
       </h2>
       <div className="flex justify-end">
-        <input type="search"  name="search" id="search" placeholder="Search..."  onChange={(e)=>debouncedOnchange(e)}  className="px-8 py-2 mx-2   rounded-md text-dark text-bold text-[19px] my-2"/>
+        <div className="searhcicon">
+          <Search/>
+        <input type="search"   name="search" id="search" placeholder="Search..."  onChange={(e)=>debouncedOnchange(e)}className="px-9 py-2 mx-2 rounded-md text-dark text-bold text-[19px] my-2"/>
+        </div>
+        
         {/* <button
           className="px-8 py-2 mx-2 bg-green-600  rounded-md text-white text-bold text-[19px] my-2"
           onClick={handleAdd}
@@ -211,8 +217,9 @@ export default function Listofusers() {
                   >
                     Delete
                   </button> */}
-                  <button  className="px-4 mx-3 py-1 bg-red-600 rounded-md text-white text-bold text-[16px] my-2"onClick={()=> handlestatusdelete(item.id,item.name)}>
-              <Delete />
+                  <button className="px-4 mx-3 py-1 bg-red-600 rounded-md text-white text-bold text-[16px] my-2"
+                    onClick={() => handlestatusdelete(item.id, item.name)}>
+                  <Delete />
                   </button>
                 </td>
               </tr>

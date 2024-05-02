@@ -11,3 +11,8 @@
 .bg-gray-500.p-10 {
   min-height: 91vh !important;
 }
+.searhcicon svg {
+  position: absolute;
+  top: 161px;
+  margin-left: 14px;
+}
