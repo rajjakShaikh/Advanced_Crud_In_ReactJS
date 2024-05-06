@@ -94,6 +94,7 @@ export default function Listofusers() {
   }
   
   const handleSubmit = async () => {
+    // if user do not add any data on input field form so give them error code start
     if (Object.values(formData).some(value => value.trim() === "")) {
       toast.error("Please fill in all fields",{
         autoClose: 1000,
@@ -101,6 +102,8 @@ export default function Listofusers() {
       });
       return;
     }
+    // if user do not add any data on input field form so give them error code end
+    
     try {
       await axios.post("http://localhost:3000/users", formData);
       setShowPopup(false);
@@ -108,7 +111,7 @@ export default function Listofusers() {
         autoClose: 700,
         position:"top-center"
       });
-       const response = await axios.get("http://localhost:3000/users");
+      const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
       //   window.location.reload(true);  
     } catch (error) {
@@ -132,7 +135,7 @@ export default function Listofusers() {
   
     const filterData = data.filter(
     (user) =>
-      user.name.toLowerCase().includes(searchterm.toLowerCase()) ||
+        user.name.toLowerCase().includes(searchterm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchterm.toLowerCase()) ||
         user.phone.toLowerCase().includes(searchterm.toLowerCase())
   );
@@ -209,7 +212,7 @@ export default function Listofusers() {
                     <Link to={`/create/listofusers/${item.id}`} >
                       <View />
                     </Link>
-            </button>
+                  </button>
 
                   {/* <button
                     className="px-6 mx-3 py-1 bg-red-600 rounded-md text-white text-bold text-[16px] my-2"

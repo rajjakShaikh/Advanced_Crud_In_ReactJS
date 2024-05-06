@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Read() {
   const navigate = useNavigate();
   const [data, setData] = useState({});
+  const [confirmation, setConfirmation] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -33,7 +34,12 @@ export default function Read() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleUpdate = async () => {
+  const handleupdateConfirmation = () => {
+    setConfirmation(true);
+}
+
+
+  const ConfirmUpdate = async () => {
     try {
       await axios.put(`http://localhost:3000/users/${id}`, formData);
       toast.success("update the data successfully", {
@@ -46,10 +52,14 @@ export default function Read() {
         autoClose: 700,
         position: "top-center",
       });
+    } finally {
+      setConfirmation(false)
+      navigate("/create/listofusers")
+    //   setTimeout(() => {
+    //   navigate("/create/listofusers");
+    // }, 2000);
     }
-    setTimeout(() => {
-      navigate("/create/listofusers");
-    }, 2000);
+   
   };
 
   const handleUpdateread=() => {
@@ -131,7 +141,7 @@ export default function Read() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-                 readOnly={!editmode}
+              readOnly={!editmode}
               className="border border-gray-300 rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:ring-blue-400"
             />
           </div>
@@ -148,7 +158,7 @@ export default function Read() {
           ) : (
                <button
             className="px-4 py-2 bg-blue-600 text-white rounded-md mr-4 focus:outline-none focus:ring focus:ring-blue-400"
-            onClick={handleUpdate}
+            onClick={handleupdateConfirmation}
           >
             update 
           </button>
@@ -162,6 +172,26 @@ export default function Read() {
           </Link>
         </div>
       </div>
+       {
+        confirmation && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-gray-800 bg-opacity-75">
+            <div className="bg-white p-8 rounded-lg ">
+              <div className="py-7 mb-3">
+                <h2> Are you sure you want to update the user</h2>
+                  <span className="text-blue-800 font-bold">{data.name}</span> ?
+              </div>
+             
+              <div className="flex justify-center gap-4">
+                <button className="px-7 py-2 font-bold bg-green-500 hover:bg-green-700 hover:border border-gray-600  text-white rounded-md"
+                  onClick={ConfirmUpdate}>Yes</button>
+                
+                <button className="px-7 py-2 font-bold bg-red-500 text-white rounded-md"
+                onClick={()=>setConfirmation(false)}>No</button>
+              </div>
+            </div>
+            </div>
+        )
+      }
     </div>
   );
 }

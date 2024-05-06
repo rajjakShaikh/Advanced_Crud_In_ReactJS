@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./component/Pages/home";
 import Create from "./component/Pages/create";
 import Todo from "./component/Pages/todo";
-// import Footer from './component/Pages/footer';
+import Footer from './component/Pages/footer';
 import Listofusers from "./component/Pages/listofusers";
 import Read from "./component/Pages/read";
 import Navbar from "./component/Pages/navbar";
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/create/listofusers" element={<Listofusers />}></Route>
           <Route path="/create/listofusers/:id" element={<Read />}></Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
