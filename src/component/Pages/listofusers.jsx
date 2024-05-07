@@ -22,6 +22,7 @@ export default function Listofusers() {
   const [totalPages, setTotalPages] = useState(100); // Add state for total pages
   const [searchterm, setSearchTerm] = useState("")
   const [confirmation, setConfirmation] = useState(false);
+  const [submitConfirmation, setSubmitConfirmation] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -92,9 +93,12 @@ export default function Listofusers() {
       setConfirmation(false);
     }
   }
-  
-  const handleSubmit = async () => {
-    // if user do not add any data on input field form so give them error code start
+  const handleconfirmationSubmit = () => {
+    setSubmitConfirmation(true);
+}
+
+  const handleConfirmADD = async () => {
+    // if user do not add any data on input field form and click on submit so give them error code-- start
     if (Object.values(formData).some(value => value.trim() === "")) {
       toast.error("Please fill in all fields",{
         autoClose: 1000,
@@ -102,14 +106,14 @@ export default function Listofusers() {
       });
       return;
     }
-    // if user do not add any data on input field form so give them error code end
-    
+    // if user do not add any data on input field form so give them error code---- end
     try {
       await axios.post("http://localhost:3000/users", formData);
+      setSubmitConfirmation(false)
       setShowPopup(false);
       toast.success("User added successfully!", {
         autoClose: 700,
-        position:"top-center"
+        position: "top-center"
       });
       const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
@@ -117,9 +121,16 @@ export default function Listofusers() {
     } catch (error) {
       toast.error("An error occurred", {
         autoClose: 500,
-        position:"top-center"
+        position: "top-center"
       })
-      console.log(error); 
+      console.log(error);
+    } finally {
+      setFormData({
+        name: "",
+        username: "",
+        email: "",
+        phone: "",
+  });
     }
   };
 
@@ -170,12 +181,11 @@ export default function Listofusers() {
         
         {/* <button
           className="px-8 py-2 mx-2 bg-green-600  rounded-md text-white text-bold text-[19px] my-2"
-          onClick={handleAdd}
-        >
+          onClick={handleAdd}>
           Add User
         </button> */}
         <button className="px-8 py-2 mx-2  bg-green-600  rounded-md text-white text-bold text-[19px] my-2" onClick={handleAdd}>
-    <Adduser />
+        <Adduser />
         </button>
       </div>
 
@@ -314,11 +324,12 @@ export default function Listofusers() {
                 />
               </div>
             </div>
+           
 
             <div className="flex justify-center gap-4">
               <button
                 className="px-7 py-2 font-bold bg-green-500 text-white rounded-md"
-                onClick={handleSubmit}
+                onClick={handleconfirmationSubmit}
               >
                 Sumbit
               </button>
@@ -333,6 +344,23 @@ export default function Listofusers() {
         </div>
       )}
 
+      {submitConfirmation && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-gray-800 bg-opacity-75">
+        <div className="bg-white p-8 rounded-lg ">
+              <div className="py-7 mb-3">
+                <h2> Are you sure you want to Add the user 
+                  <span className="text-blue-800 font-bold"> {formData.name} </span> ? </h2>
+              </div>
+             
+              <div className="flex justify-center gap-4">
+                <button className="px-7 py-2 font-bold bg-green-500 hover:bg-green-700 hover:border border-gray-600  text-white rounded-md"
+              onClick={handleConfirmADD}>Yes</button>
+                <button className="px-7 py-2 font-bold bg-red-500 text-white rounded-md"
+                onClick={()=>setSubmitConfirmation(false)}>No</button>
+              </div>
+            </div>
+        </div>
+      )}
       {
         confirmation && (
           <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-gray-800 bg-opacity-75">
