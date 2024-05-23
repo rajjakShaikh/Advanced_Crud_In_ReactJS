@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./navbar";
 
 export default function Create() {
   const navigate = useNavigate();
@@ -24,7 +25,9 @@ export default function Create() {
     });
   };
   return (
-    <div className="bg-gray-600 w-full p-6 text-white text-[18px] flex justify-center">
+    <>
+      <Navbar />
+       <div className="bg-gray-600 w-full p-6 text-white text-[18px] flex justify-center">
       <div className="w-full max-w-md">
         <h1 className="text-center mb-6">Add User</h1>
         <form onSubmit={handlesubmit}>
@@ -116,5 +119,7 @@ export default function Create() {
         </form>
       </div>
     </div>
+    </>
+   
   );
 }

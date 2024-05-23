@@ -29,13 +29,6 @@
       "phone": "3477657865"
     },
     {
-      "id": "e2b1",
-      "name": "vinod",
-      "username": "Vinod90",
-      "email": "vinod@gmail.com",
-      "phone": "2377657865"
-    },
-    {
       "id": "7972",
       "name": "rohit",
       "username": "sharma",
@@ -71,13 +64,6 @@
       "phone": "7677657865"
     },
     {
-      "id": "25f4",
-      "name": "rajjak shaikh",
-      "username": "_elavatesoul",
-      "email": "rahillshaikh77@gmail.com",
-      "phone": "7743807472"
-    },
-    {
       "id": "a69b",
       "name": "test123",
       "username": "_elavatesoul",
@@ -111,6 +97,13 @@
       "username": "testing",
       "email": "rahillshaikh77@gmail.com",
       "phone": "07743807472"
+    },
+    {
+      "id": "20d7",
+      "name": "karan",
+      "username": "karan67",
+      "email": "karan@gmail.com",
+      "phone": "3456456789"
     }
   ]
 }

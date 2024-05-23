@@ -5,13 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleOutline } from "./Pages/svg/EyeInvisibleOutline";
 import { EyeOutlined } from "./Pages/svg/EyeOutlined";
-import 'react-toastify/dist/ReactToastify.css'; // Ensure you have the styles for react-toastify
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const predefinedEmail = "razzakshaikh8800@gmail.com";
   const predefinedPassword = "Admin@123";
@@ -25,14 +25,11 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     if (email === predefinedEmail && password === predefinedPassword) {
-      // Successful login, navigate to home page
       navigate("/");
-      // Clear email and password fields
       setEmail("");
       setPassword("");
       console.log("navigate successfully done", navigate);
     } else {
-      // Invalid credentials, show error message
       toast.error("Please Provide Valid Credentials", {
         autoClose: 700,
         position: "top-center"
@@ -44,15 +41,18 @@ const Login = () => {
     try {
       // Sign in with Google authentication provider
       await signInWithPopup(auth, googleProvider);
-      // Navigate to home page after successful sign-in
       navigate("/");
     } catch (err) {
       console.error(err);
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    return (
+        <div className="w-full bg-gray-400">
+            <div className="py-5  text-center">
+                <h3 className="font-bold text-[20px] text-white">Welcome to the Advanced CRUD Web Application</h3>
+            </div>
+    <div className="min-h-screen bg-center flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <ToastContainer />
         <h2 className="text-2xl font-bold mb-8 text-center">Login</h2>
@@ -102,6 +102,10 @@ const Login = () => {
         </button>
       </div>
     </div>
+      </div>
+
+
+   
   );
 };
 

@@ -6,7 +6,6 @@ import Todo from './component/Pages/todo';
 import Footer from './component/Pages/footer';
 import Listofusers from './component/Pages/listofusers';
 import Read from './component/Pages/read';
-import Navbar from './component/Pages/navbar';
 import Test from './component/Pages/test';
 import ProtectedRoute from './component/protectedroute';
 import Login from './component/login';
@@ -16,7 +15,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Navbar />
+       
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
@@ -25,7 +24,7 @@ export default function App() {
           <Route path="/todo" element={<ProtectedRoute><Todo /></ProtectedRoute>} />
           <Route path="/create/listofusers" element={<ProtectedRoute><Listofusers /></ProtectedRoute>} />
           <Route path="/create/listofusers/:id" element={<ProtectedRoute><Read /></ProtectedRoute>} />
-          <Route path='*' element={<NotFound />} />
+          <Route path='*' element={<NotFound />} /> 
         </Routes>
         <Footer />
       </BrowserRouter>

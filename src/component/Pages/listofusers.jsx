@@ -11,6 +11,7 @@ import Adduser from './svg/Adduser'
 import Delete from './svg/Delete'
 import View from "./svg/View";
 import Search from "./svg/Search";
+import Navbar from "./navbar";
 
 
 export default function Listofusers() {
@@ -160,7 +161,9 @@ export default function Listofusers() {
   const currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div className="bg-gray-500 p-10">
+    <>
+      <Navbar />
+       <div className="bg-gray-500 p-10">
       {/* loader spinner  */}
       <div className="text-center">
           {loading && <Spinner color="purple" aria-label="text-center Loading spinner" size="xl" />}
@@ -381,5 +384,8 @@ export default function Listofusers() {
         )
       }
     </div>
+</>
+
+   
   );
 }

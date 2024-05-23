@@ -3,12 +3,16 @@ import Linkedln from "./svg/Linkedln";
 import { Link, Navigate } from "react-router-dom";
 import Github from "./svg/Github";
 import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../authContext";
+
 export default function Navbar() {
   const [openPopup, setOpenPopup] = useState(false);
+  const { currentUser } = useAuth();
   const Navigate = useNavigate();
-  const handleopenPopup = () => {
-    setOpenPopup(true);
-  };
+  // const handleopenPopup = () => {
+  //   setOpenPopup(true);
+  // };
 
   const handlelogout=() => {
     Navigate("/login")
@@ -18,25 +22,35 @@ export default function Navbar() {
   return (
     <>
       <div className="bg-blue-950 flex justify-between px-11  py-3 ">
-        <div>
+        <div className="flex gap-3">
           <button
-            className="bg-green-600 px-5 py-2 font-semibold rounded-md text-white"
-            onClick={handleopenPopup}
+            className="bg-gray-500 px-5  font-semibold rounded-md text-white"
+            onClick={handlelogout}
           >
-            Send DM
+            Logout
           </button>
-           <button className="bg-red-600 px-4 ml-3 py-2 font-semibold rounded-md text-white" onClick={handlelogout}>Logout</button>
-       
+          
+          {currentUser ? (
+          <div className="mt-3">
+            <p className="text-sm text-white">Welcome, <span className="font-bold">{currentUser.email}</span> </p>
+        
+          </div>
+        ) : (
+          <Link to="/login" className="text-white">
+            Login
+          </Link>
+          )}
+          
         </div>
         <div>
-          <h3 className="text-white text-center font-bold pt-2 text-[20px] ">
+          <h3 className="text-white mr-[4rem] font-bold pt-2 text-[20px] ">
             Advanced CRUD in React
           </h3>
         </div>
         <div className="flex justify-between gap-4 border border-white rounded-md px-3 py-1 ">
             <Link
             className="pointer-cursor-pointer"
-            to={"https://www.linkedin.com/in/rajjak-shaikh-271216243/"}>
+            to={"https://www.linkedin.com/in/rajjak-shaikh-271216243/"}> 
             <Linkedln />
           </Link>
           

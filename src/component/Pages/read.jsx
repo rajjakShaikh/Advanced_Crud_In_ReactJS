@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./navbar";
 
 export default function Read() {
   const navigate = useNavigate();
@@ -67,7 +68,9 @@ export default function Read() {
   }
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center py-8">
+    <>
+      <Navbar />
+       <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center py-8">
       <ToastContainer />
       <div className="bg-white p-8 shadow-2xl rounded-lg w-1/2">
         <h3 className="text-2xl font-bold mb-4 text-center  border-gray-400 pb-3 border-b">
@@ -193,5 +196,8 @@ export default function Read() {
         )
       }
     </div>
+</>
+
+   
   );
 }
