@@ -14,7 +14,7 @@ import Search from "./svg/Search";
 
 
 export default function Listofusers() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [perPage, setPerPage] = useState(5);
@@ -170,7 +170,7 @@ export default function Listofusers() {
         {/* <button className="px-8 py-2 mx-2 bg-gray-600 font-bold rounded-md text-white text-bold text-[15px] my-1" onClick={()=>navigate('/')}>Back</button> */}
       </div>
       <ToastContainer />
-      <h2 className="flex justify-center text-white text-[20px] font-bold">
+      <h2 className="flex justify-center text-white text-[20px] font-bold ">
         List Of Users
       </h2>
       <div className="flex justify-end">
@@ -184,6 +184,7 @@ export default function Listofusers() {
           onClick={handleAdd}>
           Add User
         </button> */}
+
         <button className="px-8 py-2 mx-2  bg-green-600  rounded-md text-white text-bold text-[19px] my-2" onClick={handleAdd}>
         <Adduser />
         </button>
@@ -267,7 +268,7 @@ export default function Listofusers() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                />
+                />  
               </div>
               <div className="mb-4">
                 <label
@@ -292,8 +293,7 @@ export default function Listofusers() {
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="Email"
-                >
+                  htmlFor="Email">
                   Email
                 </label>
                 <input

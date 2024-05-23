@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import Linkedln from "./svg/Linkedln";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Github from "./svg/Github";
+import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const [openPopup, setOpenPopup] = useState(false);
-  
+  const Navigate = useNavigate();
   const handleopenPopup = () => {
     setOpenPopup(true);
   };
+
+  const handlelogout=() => {
+    Navigate("/login")
+    console.log("Logout success");
+ }
 
   return (
     <>
@@ -19,9 +25,11 @@ export default function Navbar() {
           >
             Send DM
           </button>
+           <button className="bg-red-600 px-4 ml-3 py-2 font-semibold rounded-md text-white" onClick={handlelogout}>Logout</button>
+       
         </div>
         <div>
-          <h3 className="text-white font-bold pt-2 text-[20px] ml-[7rem]">
+          <h3 className="text-white text-center font-bold pt-2 text-[20px] ">
             Advanced CRUD in React
           </h3>
         </div>
