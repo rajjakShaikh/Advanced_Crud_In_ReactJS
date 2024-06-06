@@ -1,36 +1,36 @@
 import React, { useState } from "react";
 import Linkedln from "./svg/Linkedln";
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Github from "./svg/Github";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
-import { useAuth } from "../authContext";
+// import { useAuth } from "../authContext";
 
 export default function Navbar() {
   const [openPopup, setOpenPopup] = useState(false);
-  const { currentUser } = useAuth();
-  const Navigate = useNavigate();
+  // const { currentUser } = useAuth();
+  // const Navigate = useNavigate();
   // const handleopenPopup = () => {
   //   setOpenPopup(true);
   // };
 
-  const handlelogout=() => {
-    Navigate("/login")
-    console.log("Logout success");
- }
+//   const handlelogout=() => {
+//     Navigate("/login")
+//     console.log("Logout success");
+//  }
 
   return (
     <>
       <div className="bg-blue-950 flex justify-between px-11  py-3 ">
         <div className="flex gap-3">
-          <button
+          {/* <button
             className="bg-gray-500 px-5  font-semibold rounded-md text-white"
             onClick={handlelogout}
           >
             Logout
-          </button>
+          </button> */}
           
-          {currentUser ? (
+          {/* {currentUser ? (
           <div className="mt-3">
             <p className="text-sm text-white">Welcome, <span className="font-bold">{currentUser.email}</span> </p>
         
@@ -39,11 +39,11 @@ export default function Navbar() {
           <Link to="/login" className="text-white">
             Login
           </Link>
-          )}
+          )} */}
           
         </div>
         <div>
-          <h3 className="text-white mr-[4rem] font-bold pt-2 text-[20px] ">
+          <h3 className="text-white text-center   ml-[8rem] font-bold pt-2 text-[20px] ">
             Advanced CRUD in React
           </h3>
         </div>

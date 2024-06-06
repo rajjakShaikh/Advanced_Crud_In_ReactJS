@@ -94,14 +94,14 @@ export default function Listofusers() {
       setConfirmation(false);
     }
   }
-  const handleconfirmationSubmit = () => {
-    setSubmitConfirmation(true);
-}
+//   const handleconfirmationSubmit = () => {
+//     setSubmitConfirmation(true);
+// }
 
   const handleConfirmADD = async () => {
     // if user do not add any data on input field form and click on submit so give them error code-- start
     if (Object.values(formData).some(value => value.trim() === "")) {
-      toast.error("Please fill in all fields",{
+      toast.error("Please fill all the fields",{
         autoClose: 1000,
         position: "top-center"
       });
@@ -142,7 +142,7 @@ export default function Listofusers() {
     setSearchTerm(e.target.value);
   }
   const debouncedOnchange = debounce(updatequery, 1000);
-
+0
 // Debouncing functionality end
   
     const filterData = data.filter(
@@ -159,6 +159,7 @@ export default function Listofusers() {
   const indexOfLastItem = currentPage * perPage;
   const indexOfFirstItem = indexOfLastItem - perPage;
   const currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
+
 
   return (
     <>
@@ -249,6 +250,7 @@ export default function Listofusers() {
           totalPages={totalPages}
           onPageChange={onPageChange}
           showIcons />
+        
       { showPopup && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-gray-800 bg-opacity-75">
           <div className="bg-white p-8 rounded-lg">
@@ -271,7 +273,7 @@ export default function Listofusers() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                />  
+                  />  
               </div>
               <div className="mb-4">
                 <label
@@ -332,8 +334,16 @@ export default function Listofusers() {
             <div className="flex justify-center gap-4">
               <button
                 className="px-7 py-2 font-bold bg-green-500 text-white rounded-md"
-                onClick={handleconfirmationSubmit}
-              >
+                // onClick={handleconfirmationSubmit}
+                  onClick={() => {
+                    if (Object.values(formData).some(value => value.trim() === "")) {
+                      toast.error("please fill all the fields", {
+                        autoClose: 700,
+                      })
+                    } else {
+                      setSubmitConfirmation(true)
+                }
+              }}>
                 Sumbit
               </button>
               <button
